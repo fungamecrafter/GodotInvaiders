@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://catj0k581hgtd"]
+
+[ext_resource type="Script" path="res://elements/Enemys/enemy.gd" id="1_ix4x8"]
+[ext_resource type="Texture2D" uid="uid://bca0mchrdneby" path="res://assets/enemy1.png" id="1_kywtc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cesy"]
+atlas = ExtResource("1_kywtc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbh58"]
+atlas = ExtResource("1_kywtc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3gt4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cesy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbh58")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cte4h"]
+radius = 6.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ix4x8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w3gt4")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.295783
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_cte4h")
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-15, 0)
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+target_position = Vector2(15, 0)

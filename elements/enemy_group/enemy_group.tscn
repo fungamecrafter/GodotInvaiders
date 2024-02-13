@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://bphgron0cy3c5"]
+
+[ext_resource type="Script" path="res://elements/enemy_group/enemy_group.gd" id="1_d51fs"]
+[ext_resource type="PackedScene" uid="uid://catj0k581hgtd" path="res://elements/Enemys/enemy.tscn" id="2_yhqpw"]
+
+[node name="EnemyGroup" type="Node2D" groups=["enemy_group"]]
+script = ExtResource("1_d51fs")
+
+[node name="Enemy" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(31, 22)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(58, 22)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(83, 22)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(110, 22)
+
+[node name="Enemy5" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(137, 23)
+
+[node name="Enemy6" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(167, 22)
+
+[node name="Enemy7" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(195, 22)
+
+[node name="Enemy8" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(225, 22)
+
+[node name="Enemy9" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(209, 40)
+
+[node name="Enemy10" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(182, 42)
+
+[node name="Enemy11" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(153, 42)
+
+[node name="Enemy12" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(124, 41)
+
+[node name="Enemy13" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(97, 41)
+
+[node name="Enemy14" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(71, 42)
+
+[node name="Enemy15" parent="." instance=ExtResource("2_yhqpw")]
+position = Vector2(45, 41)
+
+[node name="BlockTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
